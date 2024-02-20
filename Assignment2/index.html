@@ -8,70 +8,7 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-    }
-
-    .navbar {
-        margin-bottom: 0;
-        border-radius: 0;
-    }
-
-    .signin-container {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        width: 300px;
-        margin: auto;
-        margin-top: 50px;
-    }
-
-    .signin-container h2 {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .signin-container input[type="text"],
-    .signin-container input[type="password"] {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
-
-    .signin-container input[type="submit"] {
-        background-color: #007bff;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        width: 100%;
-    }
-
-    .signin-container input[type="submit"]:hover {
-        background-color: #0056b3;
-    }
-
-    .signin-container .signup-link {
-        text-align: center;
-        margin-top: 10px;
-    }
-
-    .signin-container .signup-link a {
-        color: #007bff;
-        text-decoration: none;
-    }
-
-    .signin-container .signup-link a:hover {
-        text-decoration: underline;
-    }
+   
 </style>
 </head>
 <body>
@@ -93,7 +30,7 @@
 
 <div id="signin-container" class="signin-container">
     <h2>Sign In</h2>
-    <form action="#" method="POST" onsubmit="return validateSignIn()">
+    <form  action="" method="POST" onsubmit="return validateSignIn()">
         <input type="text" name="username" id="signin-username" placeholder="Username" required>
         <input type="password" name="password" id="signin-password" placeholder="Password" required>
         <input type="submit" value="Sign In">
@@ -105,7 +42,7 @@
 
 <div id="signup-form" class="signin-container" style="display: none;">
     <h2>Sign Up</h2>
-    <form action="#" method="POST" onsubmit="return validateSignUp()">
+    <form action="" method="POST" onsubmit="return validateSignUp()">
         <input type="text" name="firstname" id="signup-firstname" placeholder="First Name" required>
         <input type="text" name="lastname" id="signup-lastname" placeholder="Last Name" required>
         <input type="email" name="email" id="signup-email" placeholder="Email" required>
@@ -143,7 +80,6 @@
             return false;
         }
 
-        // Additional validation logic can be added as needed
 
         return true;
     }
