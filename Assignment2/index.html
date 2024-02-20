@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar {
+        margin-bottom: 0;
+        border-radius: 0;
+    }
+
+    .signin-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        margin: auto;
+        margin-top: 50px;
+    }
+
+    .signin-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .signin-container input[type="text"],
+    .signin-container input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .signin-container input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .signin-container input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    .signin-container .signup-link {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .signin-container .signup-link a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .signin-container .signup-link a:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-dark" style="background-color: rgb(205, 210, 232);">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a href="#">
+        <img class="logo" src="logo.png" alt="">
+      </a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#" onclick="showSignIn()">Login</a></li>
+      <li><a href="#" onclick="showSignUp()">Register</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div id="signin-container" class="signin-container">
+    <h2>Sign In</h2>
+    <form action="#" method="POST" onsubmit="return validateSignIn()">
+        <input type="text" name="username" id="signin-username" placeholder="Username" required>
+        <input type="password" name="password" id="signin-password" placeholder="Password" required>
+        <input type="submit" value="Sign In">
+    </form>
+    <div class="signup-link">
+        Don't have an account? <a href="#" onclick="showSignUp()">Sign Up</a>
+    </div>
+</div>
+
+<div id="signup-form" class="signin-container" style="display: none;">
+    <h2>Sign Up</h2>
+    <form action="#" method="POST" onsubmit="return validateSignUp()">
+        <input type="text" name="firstname" id="signup-firstname" placeholder="First Name" required>
+        <input type="text" name="lastname" id="signup-lastname" placeholder="Last Name" required>
+        <input type="email" name="email" id="signup-email" placeholder="Email" required>
+        <input type="text" name="username" id="signup-username" placeholder="Username" required>
+        <input type="password" name="password" id="signup-password" placeholder="Password" required>
+        <input type="password" name="confirm_password" id="signup-confirm-password" placeholder="Confirm Password" required>
+        <input type="text" name="phone" id="signup-phone" placeholder="Phone Number" required>
+        <input type="text" name="address" id="signup-address" placeholder="Address" required>
+        <input type="submit" value="Sign Up">
+    </form>
+    <div class="signup-link">
+        Already have an account? <a href="#" onclick="showSignIn()">Sign In</a>
+    </div>
+</div>
+
+<script>
+    function showSignUp() {
+        document.getElementById('signin-container').style.display = 'none';
+        document.getElementById('signup-form').style.display = 'block';
+    }
+
+    function showSignIn() {
+        document.getElementById('signup-form').style.display = 'none';
+        document.getElementById('signin-container').style.display = 'block';
+    }
+
+    function validateSignIn() {
+        // Perform validation for sign in form
+        var username = document.getElementById('signin-username').value;
+        var password = document.getElementById('signin-password').value;
+
+        // Example validation: username and password should not be empty
+        if (username.trim() === '' || password.trim() === '') {
+            alert('Username and password cannot be empty');
+            return false;
+        }
+
+        // Additional validation logic can be added as needed
+
+        return true;
+    }
+
+    function validateSignUp() {
+        // Perform validation for sign up form
+        var firstname = document.getElementById('signup-firstname').value;
+        var lastname = document.getElementById('signup-lastname').value;
+        var email = document.getElementById('signup-email').value;
+        var username = document.getElementById('signup-username').value;
+        var password = document.getElementById('signup-password').value;
+        var confirmPassword = document.getElementById('signup-confirm-password').value;
+        var phone = document.getElementById('signup-phone').value;
+        var address = document.getElementById('signup-address').value;
+
+        // Example validation: fields should not be empty and password should match confirm password
+        if (firstname.trim() === '' || lastname.trim() === '' || email.trim() === '' || username.trim() === '' || password.trim() === '' || confirmPassword.trim() === '' || phone.trim() === '' || address.trim() === '') {
+            alert('All fields are required');
+            return false;
+        }
+
+        if (password !== confirmPassword) {
+            alert('Passwords do not match');
+            return false;
+        }
+
+        // Additional validation logic can be added as needed
+
+        return true;
+    }
+</script>
+
+</body>
+</html>
